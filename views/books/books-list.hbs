@@ -7,10 +7,10 @@ we can iterate over it here with #each}}
 
 {{#each books}}
   <div>
-    <h3>Title: {{title}}</h3>
-    <h3>Description: {{description}}</h3>
-    <h3>Author: {{author}}</h3>
-    <h3>Rating: {{rating}}</h3>
-
+    <h3>{{title}}</h3>
+    <p>By: {{author}}</p>
+    {{! additional book property }}
+    <a href="/books/{{_id}}">See details</a>
+    {{! link that points to the details page }}
   </div>
 {{/each}}

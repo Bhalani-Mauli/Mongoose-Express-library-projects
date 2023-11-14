@@ -20,4 +20,17 @@ router.get("/books", (req, res, next) => {
     });
 });
 
+router.get("/books/:bookId", (req, res, next) => {
+  const { bookId } = req.params;
+
+  Book.findById(bookId)
+    .then((theBook) => res.render("books/book-details.hbs", { book: theBook }))
+    .catch((error) => {
+      console.log("Error while retrieving book details: ", error);
+
+      // Call the error-middleware to display the error page to the user
+      next(error);
+    });
+});
+
 module.exports = router;
