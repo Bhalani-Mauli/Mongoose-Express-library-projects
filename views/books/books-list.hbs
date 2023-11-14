@@ -14,5 +14,9 @@ we can iterate over it here with #each}}
     {{! link that points to the details page }}
     <a href="/books/{{_id}}/edit">Edit</a>
     {{! link to redirect to the edit form for each specific book  }}
+
+    <form action="/books/{{_id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
   </div>
 {{/each}}

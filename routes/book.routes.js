@@ -38,6 +38,14 @@ router.post("/books/:bookId/edit", (req, res, next) => {
     .catch((error) => next(error));
 });
 
+router.post("/books/:bookId/delete", (req, res, next) => {
+  const { bookId } = req.params;
+
+  Book.findByIdAndDelete(bookId)
+    .then(() => res.redirect("/books"))
+    .catch((error) => next(error));
+});
+
 router.get("/books", (req, res, next) => {
   Book.find()
     .then((allTheBooksFromDB) => {
